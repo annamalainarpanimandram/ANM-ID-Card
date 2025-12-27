@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>அண்ணாமலை நற்பணி மன்றம் - உறுப்பினர் அட்டை</title>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<style>
+body{
+  font-family:Arial,"Noto Sans Tamil",sans-serif;
+  background:#f2f2f2;
+  padding:20px;
+  margin:0;
+}
+.container{
+  max-width:600px;
+  margin:0 auto;
+  background:white;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+h2{
+  color:#0057b8;
+  text-align:center;
+  margin-bottom:10px;
+}
+input,select,button{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  box-sizing:border-box;
+}
+button{
+  background:#0057b8;
+  color:white;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+button:hover{
+  background:#004494;
+}
+button:disabled{
+  background:#888;
+  cursor:not-allowed;
+}
+
+#idCard{
+  width:600px;
+  height:380px;
+  position:relative;
+  display:none;
+  margin:20px auto;
+  background:url("templete.png") no-repeat center top;  /* use .png */
+  background-size:cover;
+  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  border:none;
+}
+
+
+/* photo on right side */
+.photo{
+  position:absolute;
+  top:160px;
+  right:30px;
+  width:120px;
+  height:150px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid #ffffff;
+}
+
+/* text block on left side */
+.details{
+  position:absolute;
+  top:200px;
+  left:30px;
+  font-size:18px;
+  line-height:2.2;
+  color:#000;
+}
+
+@media (max-width:600px){
+  .container{padding:15px;}
+  #idCard{width:100%;max-width:380px;height:auto;}
+  .details{left:90px;font-size:14px;}
+  .photo{
+    right:20px;
+    width:100px;
+    height:130px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>அண்ணாமலை நற்பணி மன்றம்<br>உறுப்பினர் அட்டை</h2>
+
+<input id="name" placeholder="பெயர் *" required>
+
+<select id="district" required>
+  <option value="">மாவட்டம் தேர்வு செய்க *</option>
+  <option value="திருவள்ளூர்">திருவள்ளூர்</option>
+  <option value="சென்னை">சென்னை</option>
+  <option value="காஞ்சிபுரம்">காஞ்சிபுரம்</option>
+  <option value="செங்கல்பட்டு">செங்கல்பட்டு</option>
+  <option value="ராணிப்பேட்டை">ராணிப்பேட்டை</option>
+  <option value="வேலூர்">வேலூர்</option>
+  <option value="திருப்பத்தூர்">திருப்பத்தூர்</option>
+  <option value="கிருஷ்ணகிரி">கிருஷ்ணகிரி</option>
+  <option value="தருமபுரி">தருமபுரி</option>
+  <option value="திருவண்ணாமலை">திருவண்ணாமலை</option>
+  <option value="விழுப்புரம்">விழுப்புரம்</option>
+  <option value="கள்ளக்குறிச்சி">கள்ளக்குறிச்சி</option>
+  <option value="சேலம்">சேலம்</option>
+  <option value="நாமக்கல்">நாமக்கல்</option>
+  <option value="ஈரோடு">ஈரோடு</option>
+  <option value="திருப்பூர்">திருப்பூர்</option>
+  <option value="நீலகிரி">நீலகிரி</option>
+  <option value="கோயம்புத்தூர்">கோயம்புத்தூர்</option>
+  <option value="திண்டுக்கல்">திண்டுக்கல்</option>
+  <option value="கரூர்">கரூர்</option>
+  <option value="திருச்சிராப்பள்ளி">திருச்சிராப்பள்ளி</option>
+  <option value="பெரம்பலூர்">பெரம்பலூர்</option>
+  <option value="அரியலூர்">அரியலூர்</option>
+  <option value="கடலூர்">கடலூர்</option>
+  <option value="மயிலாடுதுறை">மயிலாடுதுறை</option>
+  <option value="நாகப்பட்டினம்">நாகப்பட்டினம்</option>
+  <option value="திருவாரூர்">திருவாரூர்</option>
+  <option value="தஞ்சாவூர்">தஞ்சாவூர்</option>
+  <option value="புதுக்கோட்டை">புதுக்கோட்டை</option>
+  <option value="சிவகங்கை">சிவகங்கை</option>
+  <option value="மதுரை">மதுரை</option>
+  <option value="தேனி">தேனி</option>
+  <option value="விருதுநகர்">விருதுநகர்</option>
+  <option value="இராமநாதபுரம்">இராமநாதபுரம்</option>
+  <option value="தூத்துக்குடி">தூத்துக்குடி</option>
+  <option value="தென்காசி">தென்காசி</option>
+  <option value="திருநெல்வேலி">திருநெல்வேலி</option>
+  <option value="கன்னியாகுமரி">கன்னியாகுமரி</option>
+</select>
+
+<select id="legislature" required>
+  <option value="">சட்டமன்ற தொகுதி தேர்வு செய்க *</option>
+</select>
+
+<input id="mobile" type="tel" placeholder="மொபைல் எண் * (10 இலக்கங்கள்)" maxlength="10" required>
+
+<select id="blood" required>
+  <option value="">இரத்த வகை தேர்வு செய்க *</option>
+  <option>A+</option>
+  <option>A-</option>
+  <option>B+</option>
+  <option>B-</option>
+  <option>O+</option>
+  <option>O-</option>
+  <option>AB+</option>
+  <option>AB-</option>
+</select>
+
+<input type="file" id="photo" accept="image/*" required>
+
+<button onclick="generate()">அட்டையை உருவாக்கு</button>
+
+<!-- NEW: card structure for left labels + right photo -->
+<div id="idCard">
+  <img id="cardPhoto" class="photo" alt="Photo">
+  <div class="details">
+    <div id="cardName"></div>
+    <div id="cardLegislature"></div>
+    <div id="cardDistrict"></div>
+    <div id="cardUid"></div>
+  </div>
+</div>
+
+<button onclick="downloadID()" style="display:none" id="downloadBtn">அட்டையை பதிவிறக்கம் செய்க</button>
+
+</div>
+
+<script>
+// === YOUR GOOGLE APPS SCRIPT WEB APP URL ===
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbxXIrDf1r26FQu-QWlGPvhKKXofm-tkl3Ngw-xm-kUrA57Xla5TxtpNqfgwqHEDaRvK/exec";
+
+// === ALL 38 DISTRICTS WITH LEGISLATURES ===
+// === ALL DISTRICTS (TAMIL) WITH LEGISLATURES ===
+const legislaturesByDistrict = {
+  "திருவள்ளூர்": ["கும்மிடிப்பூண்டி", "பொன்னேரி", "திருத்தணி", "திருவள்ளூர்", "பூனமல்லி", "அவடி", "மதுரவாயல்", "அம்பத்தூர்", "மாதவரம்", "திருவொற்றியூர்"],
+  
+  "சென்னை": ["ராதாகிருஷ்ணன் நகர்", "பெரம்பூர்", "கொளத்தூர்", "வில்லிவாக்கம்", "திரு.வி.க நகர்", "எழும்பூர்", "இராயபுரம்", "துறைமுகம்", "சேப்பாக்கம்-திருவல்லிக்கேணி", "ஆயிரம் விளக்கு", "அண்ணா நகர்", "விருகம்பாக்கம்", "சைதாப்பேட்டை", "தியாகராய நகர்", "மயிலாப்பூர்", "வேளச்சேரி", "சோழிங்கநல்லூர்", "ஆலந்தூர்"],
+  
+  "காஞ்சிபுரம்": ["மடுராந்தகம்", "சீய்யாறு", "லாத்தூர்", "காஞ்சிபுரம்", "பாலாற்றங்கரை", "உத்திரமேரூர்", "அரக்கோணம்"],
+  
+  "செங்கல்பட்டு": ["செங்கல்பட்டு", "திருப்போரூர்", "பல்லாவரம்", "தாம்பரம்"],
+  
+  "ராணிப்பேட்டை": ["ராணிப்பேட்டை", "ஆரக்கோணம்"],
+  
+  "வேலூர்": ["கட்பாடி", "வேலூர்", "அணைக்கட்டு", "கே.வி.குப்பம்", "வாணியம்பாடி", "அம்பூர்"],
+  
+  "திருப்பத்தூர்": ["ஜோலார்பேட்டை", "திருப்பத்தூர்"],
+  
+  "கிருஷ்ணகிரி": ["ஊத்தங்கரை", "பர்கூர்", "கிருஷ்ணகிரி", "வேப்பனஹள்ளி", "ஓசூர்", "தளி"],
+  
+  "தருமபுரி": ["பாலக்கோடு", "பாப்பிரெட்டிப்பட்டி", "அரூர்", "தருமபுரி", "பென்னாகரம்"],
+  
+  "திருவண்ணாமலை": ["செங்கம்", "திருவண்ணாமலை", "கீழ்பென்னாதூர்", "காளசப்பாக்கம்", "பொளூர்", "ஆரணி"],
+  
+  "விழுப்புரம்": ["வந்தவாசி", "செஞ்சி", "விழுப்புரம்", "விக்கிரவாண்டி", "திண்டிவனம்", "வானூர்"],
+  
+  "கள்ளக்குறிச்சி": ["திருக்கோயில்ூர்", "உலுந்தூர்பேட்டை", "ரிஷிவந்தியம்", "கள்ளக்குறிச்சி"],
+  
+  "சேலம்": ["மேட்டூர்", "ஓமலூர்", "சேலம் மேற்கு", "சேலம் வடக்கு", "சேலம் தெற்கு", "வீரபாண்டி", "எடப்பாடி", "சங்ககிரி"],
+  
+  "நாமக்கல்": ["ராசிபுரம்", "செந்தமங்கலம்", "நாமக்கல்", "பரமத்தி-வேலூர்"],
+  
+  "ஈரோடு": ["பவானி", "அந்தியூர்", "கோபி", "பெருந்துறை", "ஈரோடு கிழக்கு", "ஈரோடு மேற்கு", "மொடக்குறிச்சி"],
+  
+  "திருப்பூர்": ["அவினாசி", "திருப்பூர் வடக்கு", "திருப்பூர் தெற்கு", "பல்லடம்", "சூலூர்", "உடுமலைப்பேட்டை"],
+  
+  "நீலகிரி": ["ஊட்டி", "கூடலூர்"],
+  
+  "கோயம்புத்தூர்": ["மேட்டுப்பாளையம்", "கோயம்புத்தூர் வடக்கு", "கோயம்புத்தூர் தெற்கு", "தொண்டாமுதூர்", "சிங்காநல்லூர்", "கிணத்துக்கடவு", "சுலூர்"],
+  
+  "திண்டுக்கல்": ["நத்தம்", "பேரியகுளம்", "பாளனி", "நிலக்கோட்டை", "திண்டுக்கல்", "ஒட்டன்சத்திரம்", "அத்தூர்"],
+  
+  "கரூர்": ["கரூர்", "கிருஷ்ணராயபுரம்", "குளித்தலை"],
+  
+  "திருச்சிராப்பள்ளி": ["மணப்பாறை", "திருச்சிராப்பள்ளி மேற்கு", "திருச்சிராப்பள்ளி கிழக்கு", "சிரங்கம்", "ஸ்ரீரங்கம்", "லால்குடி", "முசிறி"],
+  
+  "பெரம்பலூர்": ["பெரம்பலூர்", "குன்னம்"],
+  
+  "அரியலூர்": ["அரியலூர்", "ஜெயங்கொண்டம்"],
+  
+  "கடலூர்": ["கடலூர்", "குறிஞ்சிப்பாடி", "பண்ருட்டி", "நெய்வேலி", "விருதாச்சலம்", "திட்டக்குடி"],
+  
+  "மயிலாடுதுறை": ["சீர்காழி", "மயிலாடுதுறை", "பூம்புஹார்"],
+  
+  "நாகப்பட்டினம்": ["நாகப்பட்டினம்", "கீழ்வேளூர்", "வேதாரண்யம்"],
+  
+  "திருவாரூர்": ["திருத்துறைப்பூண்டி", "திருவாரூர்", "மன்னார்குடி", "நன்னிலம்"],
+  
+  "தஞ்சாவூர்": ["கும்பகோணம்", "பாபநாசம்", "திருவையாறு", "தஞ்சாவூர்", "ஒரத்தநாடு", "பட்டுக்கோட்டை", "பெரவுரணி"],
+  
+  "புதுக்கோட்டை": ["கந்தர்வக்கோட்டை", "விராலிமலை", "புதுக்கோட்டை", "திருமயம்", "ஆலங்குடி", "அரந்தாங்கி"],
+  
+  "சிவகங்கை": ["காரைக்குடி", "திருப்பத்தூர்", "சிவகங்கை", "மானாமதுரை"],
+  
+  "மதுரை": ["மேலூர்", "மதுரை கிழக்கு", "மதுரை வடக்கு", "மதுரை மத்தி", "மதுரை தெற்கு", "மதுரை மேற்கு", "சோழவந்தான்", "திருப்பரங்குன்றம்"],
+  
+  "தேனி": ["பெரியகுளம்", "ஆண்டிப்பட்டி", "கம்பம்"],
+  
+  "விருதுநகர்": ["சாத்தூர்", "சிவகாசி", "விருதுநகர்", "அருப்புக்கோட்டை", "திருச்சூலி"],
+  
+  "இராமநாதபுரம்": ["பரமக்குடி", "திருவாடானை", "ராமநாதபுரம்", "முதுகுளத்தூர்"],
+  
+  "தூத்துக்குடி": ["விலாத்திகுளம்", "கோவில்பட்டி", "தூத்துக்குடி", "திருச்செந்தூர்", "ஸ்ரீவைகுண்டம்", "ஓட்டப்பிடாரம்"],
+  
+  "தென்காசி": ["வாஸுதேவநல்லூர்", "தேன்காசி", "அலங்குளம்", "சங்கரன்கோவில்"],
+  
+  "திருநெல்வேலி": ["நாங்குநேரி", "ராதாபுரம்", "திருநெல்வேலி", "பாளையங்கோட்டை", "அம்பாசமுத்திரம்"],
+  
+  "கன்னியாகுமரி": ["கன்னியாகுமரி", "நாகர்கோவில்", "கொல்லச்சல்", "பத்மனாபபுரம்", "விளவங்கோடு"]
+};
+
+const districtSelect = document.getElementById("district");
+const legislatureSelect = document.getElementById("legislature");
+legislatureSelect.disabled = true;
+
+// populate legislature dropdown
+districtSelect.addEventListener("change", function () {
+  const district = this.value;
+  legislatureSelect.innerHTML = "";
+  const defaultOpt = document.createElement("option");
+  defaultOpt.value = "";
+  defaultOpt.textContent = "சட்டமன்ற தொகுதி தேர்வு செய்க *";
+  legislatureSelect.appendChild(defaultOpt);
+
+  if (!district || !legislaturesByDistrict[district]) {
+    legislatureSelect.disabled = true;
+    return;
+  }
+
+  legislaturesByDistrict[district].forEach(function (name) {
+    const opt = document.createElement("option");
+    opt.value = name;
+    opt.textContent = name;
+    legislatureSelect.appendChild(opt);
+  });
+  legislatureSelect.disabled = false;
+});
+
+// generate card + send to Sheet
+function generate() {
+  const name = document.getElementById("name").value.trim();
+  const district = districtSelect.value;
+  const legislature = legislatureSelect.value;
+  const mobile = document.getElementById("mobile").value.trim();
+  const blood = document.getElementById("blood").value;
+  const photoInput = document.getElementById("photo");
+
+  if (!name || !district || !legislature || !mobile || mobile.length !== 10 || !blood || !photoInput.files[0]) {
+    alert("தயவு செய்து அனைத்து கட்டாய புலங்களையும் சரியாக நிரப்பவும்.");
+    return;
+  }
+
+  const uidValue = "ANM-" + district.substring(0,3).toUpperCase() + "-" + Date.now().toString().slice(-4);
+
+  // set left text lines
+  document.getElementById("cardName").textContent        = "பெயர் : " + name;
+  document.getElementById("cardLegislature").textContent = "சட்டமன்றம் : " + legislature;
+  document.getElementById("cardDistrict").textContent    = "மாவட்டம் : " + district;
+  document.getElementById("cardUid").textContent         = "உறுப்பினர் எண் : " + uidValue;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const photoDataUrl = e.target.result;
+    document.getElementById("cardPhoto").src = photoDataUrl;
+    document.getElementById("idCard").style.display = "block";
+    document.getElementById("downloadBtn").style.display = "block";
+
+    // send as form fields (matches your Apps Script e.parameter.*)
+    const body = new URLSearchParams();
+    body.append("name", name);
+    body.append("district", district);
+    body.append("legislature", legislature);
+    body.append("mobile", mobile);
+    body.append("blood", blood);
+    body.append("photo", photoDataUrl);
+
+    fetch(SHEET_URL, {
+      method: "POST",
+      body: body
+    })
+    .then(r => r.text())
+    .then(t => console.log("Server:", t))
+    .catch(err => console.error("ERR:", err));
+  };
+
+  reader.readAsDataURL(photoInput.files[0]);
+}
+
+// download card
+function downloadID() {
+  const card = document.getElementById("idCard");
+  html2canvas(card).then(function(canvas) {
+    const link = document.createElement("a");
+    link.download = "member-id.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  });
+}
+</script>
+
+</body>
+</html>
